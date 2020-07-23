@@ -2,4 +2,10 @@
     <string name="app_name">BlogApp</string>
     <string name="title_articles">Articles</string>
     <string name="cd_article_image">Article Image</string>
+    <string name="title_no_wifi_network">No wifi network</string>
+    <string name="msg_no_wifi_connectivity">Your device is not connected to the WiFi network.</string>
+    <string name="btn_ok">OK</string>
+    <string name="msg_api_error">Error occurred! Please try again.</string>
+    <string name="lbl_likes">\u0020Likes</string>
+    <string name="lbl_comments">\u0020Comments</string>
 </resources>

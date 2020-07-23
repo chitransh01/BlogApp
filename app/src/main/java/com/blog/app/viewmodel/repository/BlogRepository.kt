@@ -35,10 +35,10 @@ class BlogRepository private constructor() {
         mAPIService = retrofit.create(APIService::class.java)
     }
 
-    fun getBlogListData(page: Int?, limit: Int?): LiveData<BlogData?> {
-        val data: MutableLiveData<BlogData?> = MutableLiveData()
-        mAPIService?.getBlogDetails(page, limit)?.enqueue(object : Callback<BlogData?> {
-            override fun onResponse(call: Call<BlogData?>?, response: Response<BlogData?>?) {
+    fun getBlogListData(page: Int?, limit: Int?): LiveData<List<BlogData.BlogDetail>?> {
+        val data: MutableLiveData<List<BlogData.BlogDetail>?> = MutableLiveData()
+        mAPIService?.getBlogDetails(page, limit)?.enqueue(object : Callback<List<BlogData.BlogDetail>?> {
+            override fun onResponse(call: Call<List<BlogData.BlogDetail>?>?, response: Response<List<BlogData.BlogDetail>?>?) {
                 if (response?.code() == Constants.API_SUCCESS) {
                     data.value = response.body()
                 } else {
@@ -46,7 +46,7 @@ class BlogRepository private constructor() {
                 }
             }
 
-            override fun onFailure(call: Call<BlogData?>?, t: Throwable?) {
+            override fun onFailure(call: Call<List<BlogData.BlogDetail>?>?, t: Throwable?) {
                 data.value = null
             }
         })

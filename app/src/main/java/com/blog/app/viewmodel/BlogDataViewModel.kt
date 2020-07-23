@@ -10,13 +10,13 @@ import com.blog.app.viewmodel.repository.BlogRepository
 
 class BlogDataViewModel(application: BlogApplication, page: Int?, limit: Int?) :
     AndroidViewModel(application) {
-    private var mBlogObservable: LiveData<BlogData?>? = null
+    private var mBlogObservable: LiveData<List<BlogData.BlogDetail>?>? = null
 
     init {
         mBlogObservable = BlogRepository.instance?.getBlogListData(page, limit)
     }
 
-    fun getObservableBlogModel(): LiveData<BlogData?>? {
+    fun getObservableBlogModel(): LiveData<List<BlogData.BlogDetail>?>? {
         return mBlogObservable
     }
 
